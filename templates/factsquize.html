@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Угадай декабриста по двум фактам:</h1>
+            </div>
+        </div>
+        <div class="row"></div>
+        <div class="row">
+            <hr>
+            <ul>
+                <li>{{ fact1.content }}</li>
+                <li>{{ fact2.content }}</li>
+            </ul>
+            <hr>
+        </div>
+        <div class="row">
+
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <select class="form-select" id="answer" name="ans_list">
+                    <option selected>Выберите вариант ответа</option>
+                    {% for people in dec %}
+                    <option value="{{ people.name }}">{{ people.name }}</option>
+                    {% endfor %}
+                </select>
+                <button class="btn btn-success" id="btn" name="btn">Проверить</button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

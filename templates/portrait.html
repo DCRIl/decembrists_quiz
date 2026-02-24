@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Угадай декабриста по портрету:</h1>
+            </div>
+        </div>
+        <div class="row"></div>
+        <div class="row">
+            <div class="col">
+                <img src="{{ url_for('static', filename='img/' + portrait) }}" alt="декабрист">
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <select class="form-select" id="answer" name="ans_list">
+                    <option selected>Выберите вариант ответа</option>
+                    {% for people in dec %}
+                    <option value="{{ people.name }}">{{ people.name }}</option>
+                    {% endfor %}
+                </select>
+                <button class="btn btn-success" id="btn" name="btn">Проверить</button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
